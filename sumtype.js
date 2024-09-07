@@ -1,5 +1,4 @@
-/* Note that < > ; can all appear in the input, causing problems for HTML. 
-To make sure nothing goes wrong, the following replacements should happen in this order:
+/* Note that < > ; can all appear in the input, causing problems for HTML. To make sure nothing goes wrong, the following replacements should happen in this order:
 
 1.  ;       $br
     {       $sup
@@ -15,7 +14,7 @@ To make sure nothing goes wrong, the following replacements should happen in thi
     
 const chars = [["g/","ĝ"],["G/","Ĝ"],["sz","š"],["SZ","Š"],["h","ḫ"],["H","Ḫ"],["r/","ř"],["R/","Ř"],["aa","ā"],["AA","Ā"],["EE","Ē"],["ee","ē"],["II","Ī"],["ii","ī"],["uu","ū"],["UU","Ū"],["[[","⸢"],["]]","⸣"],["x/","ₓ"],[";","$br"],["{","$sup"],["}","$/sup"],["<","&#60;"],[">","&#62;"],["'","&#660;"],["$br","<br>"],["$sup","<sup>"],["$/sup","</sup>"]];
 const numbers = ["₀","₁","₂","₃","₄","₅","₆","₇","₈","₉"];
-const x = /[a-zA-ZŠĜŊḪŘÁÀĀÉÈĒÍÌĪÚÙŪšĝŋḫřáàāéèēíìīúùū₀₁₂₃₄₅₆₇₈₉][0-9]/;
+const x = /[a-zA-ZšĝŋḫřáàāéèēíìīúùūŠĜŊḪŘÁÀĀÉÈĒÍÌĪÚÙŪ₀₁₂₃₄₅₆₇₈₉][0-9]/;
 
 let text;
 let engOption1;
@@ -61,7 +60,7 @@ function convertChars(){
 
 function convertNumbers(){
     while (text.search(x) != -1){
-      text = text.replaceAll(text[text.search(x)] + text[text.search(x)+1], text[text.search(x)] + numbers[parseInt(text[text.search(x)+1])]);
+      text = text.replace(text[text.search(x)] + text[text.search(x)+1], text[text.search(x)] + numbers[parseInt(text[text.search(x)+1])]);
     }
     // Here you really have to replace BOTH characters; if you find "a2" and say, now replace the second character, it will replace the first "2" it comes across.
 }
