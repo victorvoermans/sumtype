@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head lang="en">
+    <title>SumType</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      input {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body onload="convert()">
+    <div class="container">
+      <div class="p-4">
+        <div class="border-bottom">
+          <h1>SumType</h1>
+          <p class="text-secondary">A tool for typing fully formatted transliterations of Sumerian, by Victor Voermans. 2024</p>
+        </div>
+        <div class="pt-4">
+          <h5>Input</h5>
+          <textarea id="input" name="input" class="form-control border border-1 font-monospace text-primary text-bg-light p-3 mb-3"  style="height:130px;" spellcheck="false" onkeyup="convert()">sza3 {dig/er}en-lil2-la2 {i7}idigna-am3;sza3.g en.lil2=ak idigna=am</textarea>
+          <!-- <p class="text-secondary">Use <strong>semicolons</strong> to separate lines.</p> -->
+        </div>
+        <div class="pt-4">
+          <h5>Output</h5>
+          <p id="output" class="border border-1 text-secondary text-bg-light p-3"></p>
+          <p class="text-secondary">You can copy the output and paste it into a program like Word. Make sure your settings are correct so the formatting doesn&rsquo;t get lost.</p>
+        </div>
+        <div class="pt-4">
+          <h5>Key</h5>
+          <table class="table table-sm table-hover">
+            <tr>
+              <td class="font-monospace text-primary" style="width:25%;">sz</td>
+              <td style="width:25%;">š</td>
+              <td class="text-secondary" style="width:50%;"></td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">h</td>
+              <td>ḫ</td>
+              <td class="text-secondary"></td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">g/</td>
+              <td id="currentEng">ĝ</td>
+              <td class="text-secondary">can be changed to &ldquo;<span id="otherEng">ŋ</span>&rdquo; in the options below</td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">r/</td>
+              <td>ř</td>
+              <td class="text-secondary"></td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">'</td>
+              <td>&#660;</td>
+              <td class="text-secondary">glottal stop</td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">aa</td>
+              <td>ā</td>
+              <td class="text-secondary"></td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">ee</td>
+              <td>ē</td>
+              <td class="text-secondary"></td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">ii</td>
+              <td>ī</td>
+              <td class="text-secondary"></td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">uu</td>
+              <td>ū</td>
+              <td class="text-secondary"></td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">{d}</td>
+              <td><sup>d</sup></td>
+              <td class="text-secondary">superscript text</td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">[[ ]]</td>
+              <td>⸢ ⸣</td>
+              <td class="text-secondary">half square brackets</td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">x/</td>
+              <td>ₓ</td>
+              <td class="text-secondary">subscript &ldquo;x&rdquo;</td>
+            </tr>
+            <tr>
+              <td class="font-monospace text-primary">;</td>
+              <td></td>
+              <td class="text-secondary">line break</td>
+            </tr>
+          </table>
+          <p class="text-secondary">Numbers are turned into special subscript characters to ensure that determinatives like <sup>lu₂</sup> are rendered correctly.</p>
+        </div>
+        <div class="pt-4">
+          <h5>Options</h5>
+          <div class="mb-3">
+            <p>Preferred symbol for eng:</p>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="eng" id="engOption1" value="engOption1" onclick="convert()" checked>
+              <label class="form-check-label" for="engOption1">ĝ</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="eng" id="engOption2" value="engOption2" onclick="convert()">
+              <label class="form-check-label" for="engOption2">ŋ</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <p>Bold or regular output:</p>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="bold" id="boldOption1" value="boldOption1" onclick="convert()" checked>
+              <label class="form-check-label" for="boldOption1"><b><sup>d</sup>utu-še₃</b></label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="bold" id="boldOption2" value="boldOption2" onclick="convert()">
+              <label class="form-check-label" for="boldOption2"><sup>d</sup>utu-še₃</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="sumtype.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
