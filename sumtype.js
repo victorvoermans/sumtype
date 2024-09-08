@@ -1,20 +1,20 @@
-let chars = [
-    ["g/","ĝ"],
-    ["G/","Ĝ"],
-    ["sz","š"],
+const chars = [
     ["SZ","Š"],
-    ["h","ḫ"],
+    ["sz","š"],
     ["H","Ḫ"],
-    ["r/","ř"],
+    ["h","ḫ"],
+    ["G/","Ĝ"],
+    ["g/","ĝ"],
     ["R/","Ř"],
-    ["aa","ā"],
+    ["r/","ř"],
     ["AA","Ā"],
+    ["aa","ā"],
     ["EE","Ē"],
     ["ee","ē"],
     ["II","Ī"],
     ["ii","ī"],
-    ["uu","ū"],
     ["UU","Ū"],
+    ["uu","ū"],
     ["[[","⸢"],
     ["]]","⸣"],
     ["x/","ₓ"],
@@ -30,7 +30,7 @@ let chars = [
     ["$/sup","</sup>"]
 ];
 const numbers = ["₀","₁","₂","₃","₄","₅","₆","₇","₈","₉"];
-const x = /[a-zA-ZšĝŋḫřáàāéèēíìīúùūŠĜŊḪŘÁÀĀÉÈĒÍÌĪÚÙŪ₀₁₂₃₄₅₆₇₈₉][0-9]/;
+const x = /[A-Za-zŠĜŊḪŘÁÀĀÉÈĒÍÌĪÚÙŪšĝŋḫřáàāéèēíìīúùū₀₁₂₃₄₅₆₇₈₉][0-9]/;
 let text;
 let engOption1;
 let currentEng;
@@ -39,32 +39,15 @@ let boldOption1;
 
 function convert(){
     getInput();
-    chooseEng();
     convertChars();
     convertNumbers();
+    chooseEng();
     chooseType();
     writeOutput();
 }
 
 function getInput(){
     text = document.getElementById("input").value;
-}
-
-function chooseEng(){
-    engOption1 = document.getElementById("engOption1");
-    currentEng = document.getElementById("currentEng");
-    otherEng = document.getElementById("otherEng");
-    if (engOption1.checked){
-        chars[0][1] = "ĝ"; // dit moet beter kunnen
-        chars[1][1] = "Ĝ";
-        currentEng.innerHTML = "ĝ";
-        otherEng.innerHTML = "ŋ";
-    } else {
-        chars[0][1] = "ŋ";
-        chars[1][1] = "Ŋ";
-        currentEng.innerHTML = "ŋ";
-        otherEng.innerHTML = "ĝ";
-    }
 }
 
 function convertChars(){
@@ -78,6 +61,20 @@ function convertNumbers(){
       text = text.replace(text[text.search(x)] + text[text.search(x)+1], text[text.search(x)] + numbers[parseInt(text[text.search(x)+1])]);
     }
     // Here you really have to replace BOTH characters; if you find "a2" and say, now replace the second character, it will replace the first "2" it comes across.
+}
+
+function chooseEng(){
+    engOption1 = document.getElementById("engOption1");
+    currentEng = document.getElementById("currentEng");
+    otherEng = document.getElementById("otherEng");
+    if (engOption1.checked){
+        currentEng.innerHTML = "ĝ";
+        otherEng.innerHTML = "ŋ";
+    } else {
+        currentEng.innerHTML = "ŋ";
+        otherEng.innerHTML = "ĝ";
+        text = text.replaceAll("Ĝ", "Ŋ").replaceAll("ĝ", "ŋ");
+    }
 }
 
 function chooseType(){
