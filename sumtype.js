@@ -1,17 +1,3 @@
-/* Note that < > ; can all appear in the input, causing problems for HTML. To make sure nothing goes wrong, the following replacements should happen in this order:
-
-1.  ;       $br
-    {       $sup
-    }       $/sup
-
-2.  <       &#60;
-    >       &#62;
-    '       &#660;
-
-3.  $br     <br>
-    $sup    <sup>
-    $/sup   </sup> */
-    
 let chars = [
     ["g/","ĝ"],
     ["G/","Ĝ"],
@@ -32,6 +18,7 @@ let chars = [
     ["[[","⸢"],
     ["]]","⸣"],
     ["x/","ₓ"],
+    // The following replacements should happen in this order to ensure nothing goes wrong with HTML when < > ; are used in the input
     [";","$br"],
     ["{","$sup"],
     ["}","$/sup"],
