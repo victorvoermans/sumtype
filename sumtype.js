@@ -12,10 +12,38 @@
     $sup    <sup>
     $/sup   </sup> */
     
-const chars = [["g/","ĝ"],["G/","Ĝ"],["sz","š"],["SZ","Š"],["h","ḫ"],["H","Ḫ"],["r/","ř"],["R/","Ř"],["aa","ā"],["AA","Ā"],["EE","Ē"],["ee","ē"],["II","Ī"],["ii","ī"],["uu","ū"],["UU","Ū"],["[[","⸢"],["]]","⸣"],["x/","ₓ"],[";","$br"],["{","$sup"],["}","$/sup"],["<","&#60;"],[">","&#62;"],["'","&#660;"],["$br","<br>"],["$sup","<sup>"],["$/sup","</sup>"]];
+let chars = [
+    ["g/","ĝ"],
+    ["G/","Ĝ"],
+    ["sz","š"],
+    ["SZ","Š"],
+    ["h","ḫ"],
+    ["H","Ḫ"],
+    ["r/","ř"],
+    ["R/","Ř"],
+    ["aa","ā"],
+    ["AA","Ā"],
+    ["EE","Ē"],
+    ["ee","ē"],
+    ["II","Ī"],
+    ["ii","ī"],
+    ["uu","ū"],
+    ["UU","Ū"],
+    ["[[","⸢"],
+    ["]]","⸣"],
+    ["x/","ₓ"],
+    [";","$br"],
+    ["{","$sup"],
+    ["}","$/sup"],
+    ["<","&#60;"],
+    [">","&#62;"],
+    ["'","&#660;"],
+    ["$br","<br>"],
+    ["$sup","<sup>"],
+    ["$/sup","</sup>"]
+];
 const numbers = ["₀","₁","₂","₃","₄","₅","₆","₇","₈","₉"];
 const x = /[a-zA-ZšĝŋḫřáàāéèēíìīúùūŠĜŊḪŘÁÀĀÉÈĒÍÌĪÚÙŪ₀₁₂₃₄₅₆₇₈₉][0-9]/;
-
 let text;
 let engOption1;
 let currentEng;
@@ -40,7 +68,7 @@ function chooseEng(){
     currentEng = document.getElementById("currentEng");
     otherEng = document.getElementById("otherEng");
     if (engOption1.checked){
-        chars[0][1] = "ĝ";
+        chars[0][1] = "ĝ"; // dit moet beter kunnen
         chars[1][1] = "Ĝ";
         currentEng.innerHTML = "ĝ";
         otherEng.innerHTML = "ŋ";
