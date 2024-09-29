@@ -7,18 +7,6 @@ const chars = [
     ["g/","ĝ"],
     ["R/","Ř"],
     ["r/","ř"],
-    ["S/","Ṣ"],
-    ["s/","ṣ"],
-    ["T/","Ṭ"],
-    ["t/","ṭ"],
-    ["AAA","Â"],
-    ["aaa","â"],
-    ["EEE","Ê"],
-    ["eee","ê"],
-    ["III","Î"],
-    ["iii","î"],
-    ["UUU","Û"],
-    ["uuu","û"],
     ["AA","Ā"],
     ["aa","ā"],
     ["EE","Ē"],
@@ -30,7 +18,6 @@ const chars = [
     ["[[","⸢"],
     ["]]","⸣"],
     ["x/","ₓ"],
-    // The following replacements should happen in this order to ensure nothing goes wrong with HTML when < > ; are used in the input
     [";","$br"],
     ["{","$sup"],
     ["}","$/sup"],
@@ -42,7 +29,7 @@ const chars = [
     ["$/sup","</sup>"]
 ];
 const numbers = ["₀","₁","₂","₃","₄","₅","₆","₇","₈","₉"];
-const x = /[A-Za-zŠĜŊḪŘṢṬÂÁÀĀÊÉÈĒÎÍÌĪÛÚÙŪšĝŋḫřṣṭâáàāêéèēîíìīûúùū₀₁₂₃₄₅₆₇₈₉][0-9]/;
+const x = /[A-Za-zŠĜŊḪŘÁÀĀÉÈĒÍÌĪÚÙŪšĝŋḫřáàāéèēíìīúùū₀₁₂₃₄₅₆₇₈₉][0-9]/;
 let text;
 let engOption1;
 let currentEng;
@@ -72,7 +59,6 @@ function convertNumbers(){
     while (text.search(x) != -1){
       text = text.replace(text[text.search(x)] + text[text.search(x)+1], text[text.search(x)] + numbers[parseInt(text[text.search(x)+1])]);
     }
-    // Here you really have to replace BOTH characters; if you find "a2" and say, now replace the second character, it will replace the first "2" it comes across.
 }
 
 function chooseEng(){
