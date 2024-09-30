@@ -45,11 +45,6 @@ function convert(){
     writeOutput();
 }
 
-function changeEng(){
-    chooseEng();
-    writeOutput();
-}
-
 function getInput(){
     text = document.getElementById("input").value;
 }
