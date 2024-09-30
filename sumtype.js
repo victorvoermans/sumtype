@@ -45,6 +45,11 @@ function convert(){
     writeOutput();
 }
 
+function changeEng(){
+    chooseEng();
+    writeOutput();
+}
+
 function getInput(){
     text = document.getElementById("input").value;
 }
@@ -57,7 +62,7 @@ function convertChars(){
 
 function convertNumbers(){
     while (text.search(x) != -1){
-      text = text.replace(text[text.search(x)] + text[text.search(x)+1], text[text.search(x)] + numbers[parseInt(text[text.search(x)+1])]);
+      text = text.replaceAll(text[text.search(x)] + text[text.search(x)+1], text[text.search(x)] + numbers[parseInt(text[text.search(x)+1])]);
     }
 }
 
