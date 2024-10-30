@@ -12,19 +12,35 @@
   <body onload="convert()">
     <div class="container">
       <div class="p-4">
+
+        <!-- Header -->
+        
         <div class="border-bottom">
           <h1>SumType</h1>
           <p class="text-secondary">A tool for typing fully formatted transliterations of Sumerian, by Victor Voermans, 2024.</p>
         </div>
+
+        <p class="mt-4 mb-0 alert alert-warning"><strong>Update:</strong> to start a new line, you now simply press return.</p>
+
+        <!-- Input -->
+        
         <div class="pt-4">
           <h5>Input</h5>
-          <textarea id="input" name="input" class="form-control border border-1 font-monospace text-primary text-bg-light p-3 mb-3"  style="height:130px;" spellcheck="false" onkeyup="convert()">sza3 {dig/er}en-lil2-la2 {i7}idigna-am3;sza3.g en.lil2=ak idigna=am</textarea>
+          <textarea id="input" name="input" class="form-control border border-1 font-monospace text-primary text-bg-light p-3 mb-3"  style="height:130px;" spellcheck="false" onkeyup="convert()">
+sza3 {dig/er}en-lil2-la2 {i7}idigna-am3
+sza3.g en.lil2=ak idigna=am</textarea>
         </div>
+
+        <!-- Output -->
+        
         <div class="pt-4">
           <h5>Output</h5>
           <p id="output" class="border border-1 text-secondary text-bg-light p-3"></p>
           <p class="text-secondary">You can copy the output and paste it into a program like Word. Make sure your settings are correct so the formatting doesn&rsquo;t get lost.</p>
         </div>
+
+        <!-- Key -->
+       
         <div class="pt-4">
           <h5>Key</h5>
           <table class="table table-sm table-hover">
@@ -88,14 +104,17 @@
               <td>ₓ</td>
               <td class="text-secondary">subscript &ldquo;x&rdquo;</td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td class="font-monospace text-primary">;</td>
               <td></td>
               <td class="text-secondary">line break</td>
-            </tr>
+            </tr> -->
           </table>
           <p class="text-secondary">Numbers are turned into special subscript characters to ensure that determinatives like <sup>lu₂</sup> are rendered correctly.</p>
         </div>
+       
+        <!-- Options -->
+
         <div class="pt-4">
           <h5>Options</h5>
           <div class="mb-3">
@@ -122,8 +141,10 @@
           </div>
         </div>
 
-        <hr>
-        <p><a class="btn btn-primary" href="https://victorvoermans.github.io/"><i class="bi bi-house-heart-fill"></i>&ensp;My homepage</a></p>
+        <!-- Button to homepage -->
+
+        <hr class="my-4">
+        <p><a class="btn btn-primary" href="https://victorvoermans.github.io/" target="_blank"><i class="bi bi-house-heart-fill"></i> My homepage</a></p>
       </div>
     </div>
     <script src="sumtype.js"></script>
