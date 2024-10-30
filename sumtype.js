@@ -18,7 +18,8 @@ const chars = [
     ["[[","⸢"],
     ["]]","⸣"],
     ["x/","ₓ"],
-    [";","$br"],
+    ["\n","$br"],
+    [";","$br"], // Conservative of an earlier function
     ["{","$sup"],
     ["}","$/sup"],
     ["<","&#60;"],
