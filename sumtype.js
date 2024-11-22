@@ -1,3 +1,8 @@
+// When adding or removing characters, remember to update three places:
+// (1) const chars below
+// (2) const x below
+// (3) the "key" table in index.html
+
 const chars = [
     ["SZ","Š"],
     ["sz","š"],
@@ -7,6 +12,18 @@ const chars = [
     ["g/","ĝ"],
     ["R/","Ř"],
     ["r/","ř"],
+    ["T/","Ṭ"],
+    ["t/","ṭ"],
+    ["S/","Ṣ"],
+    ["s/","ṣ"],
+    ["AAA","Â"],
+    ["aaa","â"],
+    ["EEE","Ê"],
+    ["eee","ê"],
+    ["III","Î"],
+    ["iii","î"],
+    ["UUU","Û"],
+    ["uuu","û"],
     ["AA","Ā"],
     ["aa","ā"],
     ["EE","Ē"],
@@ -29,7 +46,7 @@ const chars = [
     ["$/sup","</sup>"]
 ];
 const numbers = ["₀","₁","₂","₃","₄","₅","₆","₇","₈","₉"];
-const x = /[A-Za-zŠĜŊḪŘÁÀĀÉÈĒÍÌĪÚÙŪšĝŋḫřáàāéèēíìīúùū₀₁₂₃₄₅₆₇₈₉][0-9]/;
+const x = /[A-Za-zŠĜŊḪŘṬṢÁÀĀÂÉÈĒÊÍÌĪÎÚÙŪÛšĝŋḫřṭṣáàāâéèēêíìīîúùūû₀₁₂₃₄₅₆₇₈₉][0-9]/;
 let text;
 let engOption1;
 let currentEng;
