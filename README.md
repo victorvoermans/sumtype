@@ -1,6 +1,6 @@
 # SumType
 
-[SumType](https://victorvoermans.github.io/sumtype/) is a tool for Sumerologists for typing out fully formatted transliterations of Sumerian. Below is an example.
+[SumType](https://victorvoermans.github.io/sumtype/) is a tool for Sumerologists for typing out fully formatted transliterations of Sumerian. Example:
 
 ### Input
 
