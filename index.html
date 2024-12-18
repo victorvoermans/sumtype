@@ -16,7 +16,7 @@
 
         <div class="border-bottom mb-2">
           <h2>SumType</h2>
-          <p class="text-secondary">A tool for typing fully formatted transliterations of Sumerian, by <a class="link-secondary" href="https://github.com/victorvoermans">Victor Voermans</a>, 2024.</p>
+          <p class="text-secondary">A tool for typing fully formatted transliterations of Sumerian, by Victor Voermans, 2024.</p>
         </div>
 
         <!-- Input -->
@@ -124,6 +124,7 @@ sza3.g en.lil2=ak idigna=am</textarea>
 
         <div class="pt-4">
           <h5>Options</h5>
+          <!-- Eng -->
           <div class="mb-3">
             <p>Preferred symbol for eng:</p>
             <div class="form-check">
@@ -135,6 +136,7 @@ sza3.g en.lil2=ak idigna=am</textarea>
               <label class="form-check-label" for="engOption2">ŋ</label>
             </div>
           </div>
+          <!-- Bold -->
           <div class="mb-3">
             <p>Output in bold or regular text:</p>
             <div class="form-check">
@@ -144,6 +146,18 @@ sza3.g en.lil2=ak idigna=am</textarea>
             <div class="form-check">
               <input type="radio" class="form-check-input" name="bold" id="boldOption2" value="boldOption2" onclick="convert()">
               <label class="form-check-label" for="boldOption2"><sup>d</sup>utu-še₃</label>
+            </div>
+          </div>
+          <!-- Formatting -->
+          <div class="mb-3">
+            <p>Turn formatting on or off:</p>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="formatting" id="formattingOption1" value="formattingOption1" onclick="convert()" checked>
+              <label class="form-check-label" for="formattingOption1"><sup>d</sup>utu-še₃</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="formatting" id="formattingOption2" value="formattingOption2" onclick="convert()">
+              <label class="form-check-label" for="formattingOption2">{d}utu-še3</label>
             </div>
           </div>
         </div>

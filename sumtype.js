@@ -52,11 +52,12 @@ let engOption1;
 let currentEng;
 let otherEng;
 let boldOption1;
+let formattingOption1;
 
 function convert(){
     getInput();
     convertChars();
-    convertNumbers();
+    chooseFormatting();
     chooseEng();
     chooseType();
     writeOutput();
@@ -69,6 +70,15 @@ function getInput(){
 function convertChars(){
     for (let i = 0; i < chars.length; i++){
         text = text.replaceAll(chars[i][0], chars[i][1]);
+    }
+}
+
+function chooseFormatting(){
+    formattingOption1 = document.getElementById("formattingOption1");
+    if (formattingOption1.checked){
+        convertNumbers();
+    } else {
+        text = text.replaceAll("<sup>","{").replaceAll("</sup>","}"); // Don't judge me
     }
 }
 
