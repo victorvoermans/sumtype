@@ -1,6 +1,6 @@
 # [SumType](https://victorvoermans.github.io/sumtype/)
 
-This program allows you to type out fully formatted transliterations of Sumerian. Below is an example.
+This program allows you to type out fully formatted transliterations of Sumerian.
 
 ### You type
 
